@@ -1,0 +1,21 @@
+1. 
+可以，xi的计算是在单个处理器上串行的，按列存储，讲义中提供的算法sj(j=1,n，j!=i)的计算可以在每个列上并行，也就是在每个处理器上并行。
+k = 0
+while ||x(k+1)-x(k)||<||x(k+1)-x(0)||
+    for i = 0 to n-1
+        if myid = i mod p then
+            x[myid](k+1) = (b[myid]-s[myid])/a[myid][myid]
+            s[myid] = 0
+            send(x[myid](k+1), all other processors)
+        else
+            receive(x[i](k+1), i mod p)
+            s[myid] = s[myid] + a[myid][i]x[i](k+1)
+    end{for}
+    k++
+end{while}
+
+
+
+2.
+三角方程式组的串解法中下面方程的解依赖于上面方程的解，为了破除这种依赖，在并行解法中，每次只对方程右端项进行部分修正、传递、相加。
+

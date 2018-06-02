@@ -1,0 +1,33 @@
+1. 用MPI_SEND和MPI_RECV实现MPI_ALLTOALL
+all_to_all.c
+大佬：
+
+a00 a01 a02
+a10 a11 a12
+a20 a21 a22
+
+a00 a10 a20
+a01 a11 a21
+a02 a12 a22
+
+仿照转置的方法，循环传递
+
+process 0  a[1] -> process[1] b[0]
+
+2. 分块下三角矩阵对角线上的块都是m*m矩阵
+给出下三角矩阵的数据类型用于传输对角块（存在一维数组中）
+见diag.c 和 diag2.c
+
+
+
+3. 怎样传送上下三角阵,定义新的数据类型（原来存在一维数组中）
+
+下三角 如果存成一维，
+*000
+**00
+***0
+****
+triangle.c
+
+4.用MPI_Send和MPI_Recv实现scatter
+myscatter.c 
