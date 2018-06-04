@@ -1,0 +1,4 @@
+1.矩阵A和B部分相加得到C 
+matrixadd.c
+2.计算多项式 
+polynomial.c
